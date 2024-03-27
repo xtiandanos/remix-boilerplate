@@ -1,4 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
+import { useState } from "react";
+// import { BsArrowLeftShort } from "react-icons/bs";
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,34 +10,26 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const [isOpen, setIsOpen] = useState<boolean>(true);
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="flex">
+      <div className={`bg-dark-purple h-screen p-5 pt-8  relative`}>
+        <button
+          className={`text-dark-purple bg-white text-3xl rounded-full absolute -right-3 top-9 border border-dark-purple cursor-pointer ${
+            isOpen ? "w-72" : "w-20"
+          }`}
+          onClick={() => {
+            console.log("test", isOpen);
+            setIsOpen(!isOpen);
+          }}
+        >
+          click here
+        </button>
+      </div>
+      <div className="p-7">
+        <h1 className="text-2xl font-semibold">Home Page</h1>
+      </div>
     </div>
   );
 }
