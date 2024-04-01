@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BsArrowLeftShort, BsSearch, BsChevronDown } from "react-icons/bs";
-import { AiFillEnvironment } from "react-icons/ai";
+import { BsArrowLeftShort, BsSearch, BsChevronDown, BsPerson, BsFillImageFill, BsReverseBackspaceReverse } from "react-icons/bs";
+import { AiOutlineBarChart, AiOutlineLogout, AiOutlineMail, AiOutlineSetting } from "react-icons/ai";
 import { RiDashboardFill } from "react-icons/ri";
 import { Link } from "@remix-run/react";
 
@@ -10,11 +10,12 @@ export default function SideBar() {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState<boolean>(false);
 
   const Menus = [
-    { title: "Dashboard" },
-    { title: "Customers", links: '/customers' },
-    { title: "Media", spacing: true },
+    { title: "Dashboard"},
+    { title: "Customers", links: '/customers', icon: <BsPerson /> },
+    { title: "Media", spacing: true, icon: <BsFillImageFill /> },
     {
       title: "Projects",
+      icon: <BsReverseBackspaceReverse />,
       submenu: true,
       submenuItems: [
         { title: "Submenu 1" },
@@ -22,11 +23,11 @@ export default function SideBar() {
         { title: "Submenu 3" },
       ],
     },
-    { title: "Analytics" },
-    { title: "Inbox" },
-    { title: "Profile", spacing: true },
-    { title: "Setting" },
-    { title: "Logout" },
+    { title: "Analytics", icon: <AiOutlineBarChart /> },
+    { title: "Inbox", icon: <AiOutlineMail /> },
+    { title: "Profile", spacing: true, icon: <BsPerson /> },
+    { title: "Setting", icon: <AiOutlineSetting /> },
+    { title: "Logout", icon: <AiOutlineLogout />  },
   ];
 
   return (
@@ -44,19 +45,12 @@ export default function SideBar() {
             setIsOpen(!isOpen);
           }}
         />
-        <div className="inline-flex">
-          <AiFillEnvironment
-            className={`bg-amber-300 text-4xl rounded cursor-pointer block float-left mr-2 duration-500 ${
+        <div className="">
+          <img src="../public/everesteffect-logo.svg" alt="Logo" className={`text-5xl invert rounded cursor-pointer block float-left mr-2 mb-5 duration-500 ${
               isOpen && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-2xl ${
-              !isOpen && "scale-0"
-            } duration-300`}
-          >
-            Tailwind
-          </h1>
+              }`} 
+            />
+           
         </div>
 
         <div
@@ -90,7 +84,7 @@ export default function SideBar() {
                 }`}
               >
                 <span className="text-2xl block float-left">
-                  <RiDashboardFill />
+                  {menu.icon ? menu.icon : <RiDashboardFill /> }
                 </span>
                 <span
                   className={`text-base font-medium flex-1 ${
