@@ -3,10 +3,11 @@ import { useState } from "react";
 import { BsArrowLeftShort, BsSearch, BsChevronDown } from "react-icons/bs";
 import { AiFillEnvironment } from "react-icons/ai";
 import { RiDashboardFill } from "react-icons/ri";
+import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
+    { title: "Home" },
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
@@ -17,7 +18,7 @@ export default function Index() {
 
   const Menus = [
     { title: "Dashboard" },
-    { title: "Pages" },
+    { title: "Pages", links: '/pages' },
     { title: "Media", spacing: true },
     {
       title: "Projects",
@@ -88,6 +89,7 @@ export default function Index() {
         <ul className="pt-2">
           {Menus.map((menu, index) => (
             <>
+            <Link to={menu.links ? `${menu.links}` : '/'}>
               <li
                 key={index}
                 className={`text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${
@@ -111,6 +113,7 @@ export default function Index() {
                   />
                 )}
               </li>
+              </Link>
 
               {menu.submenu && isSubmenuOpen && isOpen && (
                 <ul>
@@ -129,7 +132,7 @@ export default function Index() {
         </ul>
       </div>
       <div className="p-7">
-        <h1 className="text-2xl font-semibold">Home Page</h1>
+        <h1 className="text-2xl font-semibold">Home</h1>
       </div>
     </div>
   );
