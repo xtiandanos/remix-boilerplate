@@ -11,7 +11,7 @@ export default function SideBar() {
 
   const Menus = [
     { title: "Dashboard" },
-    { title: "Pages", links: '/customers' },
+    { title: "Customers", links: '/customers' },
     { title: "Media", spacing: true },
     {
       title: "Projects",
