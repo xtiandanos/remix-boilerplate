@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AgGridReact } from 'ag-grid-react'; // AG Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
-import { ColDef, } from '@ag-grid-community/core';
+import { ColDef } from '@ag-grid-community/core';
 
 import SideBar from "~/components/SideBar";
 
