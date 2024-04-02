@@ -13,7 +13,7 @@ interface MenuItem {
 }
 
 export const Menus: MenuItem[] = [
-  { title: "Dashboard"},
+  { title: "Dashboard", links: '/dashboard'},
   { title: "Customers", links: '/customers', icon: BsPerson },
   { title: "Media", spacing: true, icon: BsFillImageFill },
   {

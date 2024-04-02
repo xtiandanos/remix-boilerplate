@@ -4,12 +4,10 @@ import { RiDashboardFill } from "react-icons/ri";
 import { Link } from "@remix-run/react";
 import { Menus } from "./menuData";
 
-interface SideBarProps {
-  handleLogout: () => void;
-}
+interface SideBarProps {}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const SideBar: React.FC<SideBarProps> = ({ handleLogout }) => {
+const SideBar: React.FC<SideBarProps> = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState<boolean>(false);
 

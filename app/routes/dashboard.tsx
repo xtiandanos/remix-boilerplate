@@ -16,13 +16,14 @@ export default function Index() {
     supabase: SupabaseClient<Database>;
   }>();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleLogout = async () => {
     await supabase.auth.signOut();
   };
 
   return (
     <div className="flex">
-      <SideBar handleLogout={handleLogout} />
+      <SideBar />
       <div className="p-7">
         <h1 className="text-2xl font-semibold">Home Page</h1>
       </div>
