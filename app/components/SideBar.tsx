@@ -1,34 +1,17 @@
-import { useState } from "react";
-import { BsArrowLeftShort, BsSearch, BsChevronDown, BsPerson, BsFillImageFill, BsReverseBackspaceReverse } from "react-icons/bs";
-import { AiOutlineBarChart, AiOutlineLogout, AiOutlineMail, AiOutlineSetting } from "react-icons/ai";
+import React, { useState } from "react";
+import { BsArrowLeftShort, BsSearch, BsChevronDown } from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 import { Link } from "@remix-run/react";
+import { Menus } from "./menuData";
 
+interface SideBarProps {
+  handleLogout: () => void;
+}
 
-export default function SideBar() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const SideBar: React.FC<SideBarProps> = ({ handleLogout }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState<boolean>(false);
-
-  const Menus = [
-    { title: "Dashboard"},
-    { title: "Customers", links: '/customers', icon: <BsPerson /> },
-    { title: "Media", spacing: true, icon: <BsFillImageFill /> },
-    {
-      title: "Projects",
-      icon: <BsReverseBackspaceReverse />,
-      submenu: true,
-      submenuItems: [
-        { title: "Submenu 1" },
-        { title: "Submenu 2" },
-        { title: "Submenu 3" },
-      ],
-    },
-    { title: "Analytics", icon: <AiOutlineBarChart /> },
-    { title: "Inbox", icon: <AiOutlineMail /> },
-    { title: "Profile", spacing: true, icon: <BsPerson /> },
-    { title: "Setting", icon: <AiOutlineSetting /> },
-    { title: "Logout", icon: <AiOutlineLogout />  },
-  ];
 
   return (
     <div className="flex">
@@ -45,12 +28,12 @@ export default function SideBar() {
             setIsOpen(!isOpen);
           }}
         />
+
         <div className="">
           <img src="../public/everesteffect-logo.svg" alt="Logo" className={`text-5xl invert rounded cursor-pointer block float-left mr-2 mb-5 duration-500 ${
               isOpen && "rotate-[360deg]"
               }`} 
-            />
-           
+            /> 
         </div>
 
         <div
@@ -63,7 +46,6 @@ export default function SideBar() {
               isOpen && "mr-2"
             }`}
           />
-
           <input
             type={"search"}
             placeholder="Search"
@@ -84,7 +66,7 @@ export default function SideBar() {
                 }`}
               >
                 <span className="text-2xl block float-left">
-                  {menu.icon ? menu.icon : <RiDashboardFill /> }
+                  {menu.icon ? <menu.icon /> : <RiDashboardFill /> }
                 </span>
                 <span
                   className={`text-base font-medium flex-1 ${
@@ -104,7 +86,7 @@ export default function SideBar() {
 
               {menu.submenu && isSubmenuOpen && isOpen && (
                 <ul>
-                  {menu.submenuItems.map((submenuItem, index) => (
+                  {menu.submenuItems?.map((submenuItem, index) => (
                     <li
                       key={index}
                       className={`text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 px-5 hover:bg-light-white rounded-md`}
@@ -121,3 +103,5 @@ export default function SideBar() {
     </div>
   );
 }
+
+export default SideBar;
