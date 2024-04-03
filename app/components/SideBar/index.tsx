@@ -6,7 +6,6 @@ import { Menus } from "./menuData";
 
 interface SideBarProps {}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SideBar: React.FC<SideBarProps> = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState<boolean>(false);
@@ -56,7 +55,7 @@ const SideBar: React.FC<SideBarProps> = () => {
         <ul className="pt-2">
           {Menus.map((menu, index) => (
             <>
-            <Link to={menu.links ? `${menu.links}` : '/'}>
+            <Link to={menu.links ? `${menu.links}` : ''}>
               <li
                 key={index}
                 className={`text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md ${

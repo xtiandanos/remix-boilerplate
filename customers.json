@@ -1,0 +1,15 @@
+{ "customers": [
+    { "name": "June Rodney Pavia", "prefferedName": "Hunyo", "email": "" },
+    { "name": "June Rodney Pavia", "prefferedName": "Hunyo", "email": "" },
+    { "name": "June Rodney Pavia", "prefferedName": "Hunyo", "email": "" },
+    { "name": "June Rodney Pavia", "prefferedName": "Hunyo", "email": "" },
+    { "name": "June Rodney Pavia", "prefferedName": "Hunyo", "email": "" },
+    { "name": "June Rodney Pavia", "prefferedName": "Hunyo", "email": "" },
+    { "name": "June Rodney Pavia", "prefferedName": "Hunyo", "email": "" }
+],
+    "pagination": {
+        "enabled": true,
+        "pageSize": 10,
+        "pageSizeOptions": [50, 100, 500]
+    }
+} 
