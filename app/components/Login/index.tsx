@@ -1,4 +1,4 @@
-import { useOutletContext } from "@remix-run/react";
+import { useOutletContext, Form } from "@remix-run/react";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { Database } from "database.types";
 import loginStyle from '~/components/Login/login.css';
@@ -22,9 +22,9 @@ export default function Login() {
   return (
     <>
     <div className="form-container">
-      <form method="post" id="login-form">
+      <Form method="post" id="login-form">
           <div>
-              <label htmlFor="title">Email Login</label>
+              <label htmlFor="email">Email</label>
               <input
               type="text"
               id="email"
@@ -32,9 +32,17 @@ export default function Login() {
               required
               />
           </div>
-          <button>Login</button>
-          
-      </form>
+          <div>
+              <label htmlFor="password">Password</label>
+              <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              />
+          </div>
+          <button>Login</button>   
+      </Form>
       </div>
       <div className="content-normal">
         <button onClick={handleEmailLogin}>Email Login</button>
