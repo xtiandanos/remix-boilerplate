@@ -27,7 +27,7 @@ const SideBar: React.FC<SideBarProps> = () => {
         />
 
         <div className="">
-          <img src="../public/everesteffect-logo.svg" alt="Logo" className={`text-5xl invert rounded cursor-pointer block float-left mr-2 mb-5 duration-500 ${
+          <img src="/everesteffect-logo.svg" alt="Logo" className={`text-5xl invert rounded cursor-pointer block float-left mr-2 mb-5 duration-500 ${
               isOpen && "rotate-[360deg]"
               }`} 
             /> 
