@@ -48,16 +48,8 @@ export default function CustomersPage() {
         { field: "email" },
     ];
     
-    const [rowData, setRowData] = useState<IRow[]>(data || []);
-    const [colDefs, setColDefs] = useState<ColDef<IRow>[]>(colTitle);
-
-    useEffect(() => {
-        if (data === undefined) {
-            console.log("Data is still loading...");
-        } else {
-            setRowData(data);
-        }
-    }, [data]);
+    const [rowData] = useState<IRow[]>(data || []);
+    const [colDefs] = useState<ColDef<IRow>[]>(colTitle);
 
     return (
         <div className="flex">
