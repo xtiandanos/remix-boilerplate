@@ -1,4 +1,4 @@
-import { useOutletContext, Form } from "@remix-run/react";
+import { useOutletContext, Form, useNavigation } from "@remix-run/react";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { Database } from "database.types";
 import loginStyle from '~/components/Login/login.css';
@@ -7,6 +7,9 @@ export default function Login() {
   const { supabase } = useOutletContext<{
     supabase: SupabaseClient<Database>;
   }>();
+
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
 
   const handleEmailLogin = async () => {
     await supabase.auth.signInWithPassword({
@@ -41,7 +44,7 @@ export default function Login() {
               required
               />
           </div>
-          <button>Login</button>   
+          <button disabled={isSubmitting}>{isSubmitting ? 'Logging In' : 'Login'}</button>  
       </Form>
       </div>
       <div className="content-normal">
